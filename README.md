@@ -40,3 +40,9 @@ Checkout `release_40` tag. Then clone the customized Clang repository
 In the root CMake in LLVM_ALL_TARGETS remove all targets, but X86.
 There are some weird failures for some ARM targets, so it is the easiest
 way to get it to build. Build LLVM project as normal.
+
+# Licensing
+
+* SparseLU binaries and source code are published under GPL-2.0 license
+* IS binaries and source code are published under NASA Open Source Agreement v1.3
+* Scripts, traces and results are published under the MIT license

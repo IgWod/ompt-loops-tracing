@@ -1,48 +1,67 @@
 # Introduction
 
-Artifacts code for the paper: "Aftermath and OMPT: Loops and Tasks Tracing Using OMPT" 
+Artifacts for the paper: "Aftermath and OMPT: Loops and Tasks Tracing Using OMPT".
+To cite us please use the following BibTeX entry:
 
-# Requirements
+```
+Work-in-progress
+```
 
-All customized code can be found in the following repositories:
+# Repository structure:
 
-* https://github.com/pepperpots/llvm-project-openmp (branch: iwomp2020)
-* https://github.com/LangdalP/clang (branch: pedervl/static-chunks-conditional)
-* https://github.com/pepperpots/aftermath (branch: iwomp2020)
-* https://github.com/pepperpots/Afterompt (tag: iwomp2020)
+* `bin` - Compiled benchmarks used for case studies.
+* `license` - Licenses for the files in this repository.
+* `results` - Results from the overhead analysis.
+* `scripts` - Scripts used to run benchmarks for the overhead analysis.
+* `src` - Source files for benchmarks from the `bin` directory.
+* `traces` - Trace files of benchmarks from the `bin` directory.
+
+# Software
+
+Following software was used to obtain results for this paper:
+
+* LLVM OpenMP Runtime https://github.com/pepperpots/llvm-project-openmp (branch: iwomp2020)
+* Clang https://github.com/LangdalP/clang (branch: pedervl/static-chunks-conditional)
+* Aftermath https://github.com/pepperpots/aftermath (branch: iwomp2020)
+* Afterompt https://github.com/pepperpots/Afterompt (tag: iwomp2020)
 
 # Building
 
-The following steps show how to build all components required for the
-complete tracing of loops and tasks.
+This section shows how to build all components from the previous section.
 
 ## Aftermath
 
-Simply clone the Aftermath from here https://github.com/pepperpots/aftermath
-(branch: iwomp2020) and build it following the standard steps from
-[here](https://www.aftermath-tracing.com/prerelease/)
+Official steps described [here](https://www.aftermath-tracing.com/prerelease/)
+can be used.
 
 ## OpenMP Runtime
 
-Clone the full LLVM project from [here](https://github.com/llvm/llvm-project).
-Checkout `llvmorg-9.0.0` tag and replace `openmp` directory with the
-customized runtime. Then build everything as normal.
+The OpenMP runtime has to be built in-tree with following steps:
+
+* Clone the full LLVM project from [here](https://github.com/llvm/llvm-project).
+* Checkout the `llvmorg-9.0.0` tag.
+* Replace `openmp` directory with the customized one.
+* Follow standard instruction for building LLVM OpenMP runtime.
 
 ## Afterompt
 
-Simply follow instructions in the repository.
+The instruction for building the library can be find in its repository.
 
 ## Clang
 
-Clone LLVM project archive from [here](https://github.com/llvm-mirror/llvm.git).
-Checkout `release_40` tag. Then clone the customized Clang repository
-(brnach: pedervl/static-chunks-conditional) into `tools` directory.
-In the root CMake in LLVM_ALL_TARGETS remove all targets, but X86.
-There are some weird failures for some ARM targets, so it is the easiest
-way to get it to build. Build LLVM project as normal.
+Clang has to be built using the old LLVM repository as follows:
+
+* Clone LLVM project archive from [here](https://github.com/llvm-mirror/llvm.git).
+* Checkout the `release_40` tag.
+* Clone the customized Clang repository into `tools` directory.
+* In the root CMake file remove all targets, but X86 from LLVM_ALL_TARGETS. This
+is necessary to avoid some compile errors caused by (most probably) ARM backend.
+* Follow standard building instructions for the repository.
 
 # Licensing
 
-* SparseLU binaries and source code are published under GPL-2.0 license
-* IS binaries and source code are published under NASA Open Source Agreement v1.3
-* Scripts, traces and results are published under the MIT license
+The files in this repository use following licenses:
+
+* SparseLU binaries and source code are published under the GPL-2.0 license.
+* IS binaries and source code are published under the NASA Open Source Agreement v1.3.
+* Scripts, traces and results are published under the MIT license.

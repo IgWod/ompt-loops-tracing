@@ -1,10 +1,19 @@
 # Introduction
 
-Artifacts for the paper: "Aftermath and OMPT: Loops and Tasks Tracing Using OMPT".
+Artifacts for the paper: "AfterOMPT: An OMPT-Based Tool for Fine-Grained Tracing of Tasks and Loops".
 To cite us please use the following BibTeX entry:
 
 ```
-Work-in-progress
+@inproceedings{wodiany2020afterompt,
+  title={AfterOMPT: An OMPT-Based Tool for Fine-Grained Tracing of Tasks and Loops},
+  author={Wodiany, Igor and Drebes, Andi and Neill, Richard and Pop, Antoniu},
+  booktitle={OpenMP: Portable Multi-Level Parallelism on Modern Systems},
+  pages={165--180},
+  year={2020},
+  organization={Springer International Publishing},
+  address={Cham},
+  doi={10.1007/978-3-030-58144-2_11}
+}
 ```
 
 # Repository structure:
